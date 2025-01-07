@@ -1,0 +1,7 @@
+{
+  "check_folder_content": "Überprüft den Inhalt eines Verzeichnisses und meldet Änderungen oder Abweichungen.",
+  "check_rpi_temp": "Misst die CPU-Temperatur eines Raspberry Pi und gibt Warnungen bei Überhitzung aus.",
+  "check_user_exp.py": "Prüft die Ablaufdaten von Benutzerkonten und informiert Administratoren über baldige Abläufe.",
+  "count_sent_mails": "Zählt die Anzahl der gesendeten E-Mails eines Mailservers und hilft bei der Überwachung des E-Mail-Aufkommens.",
+  "folder_size_check": "Überwacht die Größe eines Verzeichnisses und gibt Warnungen bei Überschreiten von Grenzwerten aus."
+}
