@@ -8,6 +8,17 @@
 ```
 www.serancon.de | Michael Kraus
 
+<br>
+
+---
+ToDo
+---
+- Extensions an alle Skripte hängen sodass erkennbar ist, in welcher Sprache das Skript vorliegt
+- Umlaute anpassen (Ä,Ö,Ü)
+- Update Automatismus der README-Datei einbinden
+- Die jeweiligen Voraussetzungen der Skripte beschreiben
+- ===> bei kleineren Vorraussetzunge entsprechend im Skript automatisieren (zB mkdir, touch, wget etc.)
+
 # Skript-Downloader - Dokumentation
 
 Der Skript-Downloader ermöglicht es, Skripte aus dem GitHub-Repository **check_mk** einfach auszuwählen, herunterzuladen und ausführbar zu machen.
