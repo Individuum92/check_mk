@@ -4,4 +4,7 @@
   "check_user_exp.py": "Prüft die Ablaufdaten von Benutzerkonten und informiert Administratoren über baldige Abläufe.",
   "count_sent_mails": "Zählt die Anzahl der gesendeten E-Mails eines Mailservers und hilft bei der Überwachung des E-Mail-Aufkommens.",
   "folder_size_check": "Überwacht die Größe eines Verzeichnisses und gibt Warnungen bei Überschreiten von Grenzwerten aus."
+  "check_blacklist.py": "Überprüft, ob bestimmte IP-Adressen oder Domains auf einer Blacklist stehen."
+  "check_cronjobs.py": "Überwacht geplante Cronjobs auf einem Linux-System und meldet, ob sie erfolgreich ausgeführt wurden oder fehlschlagen."
+  "speedtest.py": "Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen."
 }
