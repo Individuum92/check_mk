@@ -36,6 +36,15 @@ Zählt die Anzahl der gesendeten E-Mails eines Mailservers und hilft bei der Üb
 ### folder_size_check
 Überwacht die Größe eines Verzeichnisses und gibt Warnungen bei Überschreiten von Grenzwerten aus.
 
+### check_blacklist.py
+Überprüft, ob bestimmte IP-Adressen oder Domains auf einer Blacklist stehen
+
+### check_cronjobs.py
+Überwacht geplante Cronjobs auf einem Linux-System und meldet, ob sie erfolgreich ausgeführt wurden oder fehlschlagen.
+
+### speedtest.py
+Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen.
+
 ## Installation & Nutzung
 
 1. **Skript herunterladen und ausführbar machen:**
