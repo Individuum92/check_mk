@@ -16,10 +16,20 @@ Aus meiner eigenen Erfahrung und der Betreuung von Kunden im Bereich Monitoring 
 
 Falls Sie Anregungen oder spezielle Anforderungen haben, lassen Sie es mich wissen. Bei Problemen oder Fehlern können Sie gerne die Issue-Funktion nutzen.
 
-[![GitHub issues](https://img.shields.io/github/issues/Individuum92/check_mk?style=for-the-badge)](https://github.com/Individuum92/check_mk/issues)
+![GitHub issues](https://img.shields.io/github/issues/Individuum92/check_mk)
+ ![GitHub last commit](https://img.shields.io/github/last-commit/Individuum92/check_mk) ![GitHub repo size](https://img.shields.io/github/repo-size/Individuum92/check_mk)
 
+## Warum dieses Repository?
+
+CheckMK ist ein mächtiges Tool zur Überwachung von Systemen. Dieses Repository stellt zusätzliche Skripte zur Automatisierung bereit, um:
+✔️ Skripte automatisieren wiederkehrende Aufgaben und reduzieren den Verwaltungsaufwand in CheckMK  
+✔️ Zentrale Bereitstellung und Verwaltung aller Skripte statt manueller Updates auf mehreren Servern  
+✔️ Der GitHub-Downloader hält Skripte automatisch aktuell – ohne manuelles Kopieren  
+✔️ Open Source, gut dokumentiert und leicht anpassbar – ideal für Anfänger und Profis  
+✔️ Learning by doing und Hilfe zur Selbsthilfe
+
+<!--
 <br>
-
 <details>
   <summary>📚 Inhaltsverzeichnis</summary>
 
@@ -31,6 +41,7 @@ Falls Sie Anregungen oder spezielle Anforderungen haben, lassen Sie es mich wiss
 - [ToDo](#todo)
 
 </details>
+-->
 
 <br>
 
@@ -59,7 +70,7 @@ Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur b
 - /var/log/serancon
 - /tmp/serancon
 
-#### Skript herunterladen und ausführbar machen
+#### Github-Downloader herunterladen
    ```bash
    wget https://raw.githubusercontent.com/Individuum92/check_mk/main/github_downloader.sh
    chmod +x github_downloader.sh
