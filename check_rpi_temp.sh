@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Schwellwerte für Warnung und Kritisch (anpassen nach Bedarf)
-WARN_TEMP=50.0
-CRIT_TEMP=70.0
+WARN_TEMP=70.0
+CRIT_TEMP=85.0
 
 # Service Name für CheckMK
 SERVICE_NAME="Raspberry Pi Temperature"
