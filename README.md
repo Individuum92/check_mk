@@ -81,3 +81,8 @@ Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkei
 - [ ] Umlaute anpassen (Ä,Ö,Ü)
 - [ ] Update Automatismus der README-Datei einbinden
 - [ ] Die jeweiligen Voraussetzungen der Skripte beschreiben
+- [ ] DE / EN Versionen
+
+
+
+
