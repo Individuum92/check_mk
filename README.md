@@ -55,11 +55,11 @@ Das Skript ruft die Liste der Dateien aus dem Repository ab. Dem Benutzer wird e
 Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur besteht:
 - /etc/serancon
 - /var/log/serancon
-- /etc/serancon
+- /tmp/serancon
 
 Diese Struktur wird automatisch bei Ausführung des Skript-Downloader's angelegt. Alternativ mit folgendem Befehl: 
    ```bash
-   mkdir -p /etc/serancon /var/log/serancon /etc/serancon
+   mkdir -p /etc/serancon /var/log/serancon /tmp/serancon
    ```
 
 #### Skript herunterladen und ausführbar machen
