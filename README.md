@@ -1,25 +1,24 @@
-```
- _____                                      
-/  ___|                                     
-\ `--.  ___ _ __ __ _ _ __   ___ ___  _ __  
- `--. \/ _ \ '__/ _` | '_ \ / __/ _ \| '_ \ 
-/\__/ /  __/ | | (_| | | | | (_| (_) | | | |
-\____/ \___|_|  \__,_|_| |_|\___\___/|_| |_|
-```
+![Logo](https://serancon.de/wp-content/uploads/2022/03/logo.png)
+
+
 www.serancon.de | Michael Kraus
 
-<br>
+Aus meiner eigenen Erfahrung und der Betreuung von Kunden im Bereich Monitoring heraus habe ich beschlossen, eigene Checks zu entwickeln und hier öffentlich bereitzustellen. Mein Ziel ist es, die Skripte kontinuierlich zu aktualisieren und zu verbessern.
 
-# Skript-Downloader - Dokumentation
+Falls Sie Anregungen oder spezielle Anforderungen haben, lassen Sie es mich wissen. Bei Problemen oder Fehlern können Sie gerne die Issue-Funktion nutzen:
+🔗 GitHub Issues
 
-Der Skript-Downloader ermöglicht es, Skripte aus dem GitHub-Repository **check_mk** einfach auszuwählen, herunterzuladen und ausführbar zu machen.
 
-## Funktionsweise
+## Skript-Downloader
 
-- Das Skript ruft die Liste der Dateien aus dem Repository ab.
-- Dem Benutzer wird ein interaktives Menü zur Auswahl der Skripte angezeigt.
-- Das gewählte Skript wird mit `wget` heruntergeladen.
-- Nach dem Download wird es mit `chmod +x` ausführbar gemacht.
+Der Skript-Downloader ermöglicht es, Skripte aus dem GitHub-Repository check_mk einfach auszuwählen, herunterzuladen und ausführbar zu machen. Die Skripte werden dabei automatisch in dn richtigen Ordner verschoben. Die Skripte können nach dem Downlaod bearbeitet werden.
+Ort der Skripte: `/usr/etc/check_mk/local`
+
+### Funktionsweise
+Das Skript ruft die Liste der Dateien aus dem Repository ab.
+Dem Benutzer wird ein interaktives Menü zur Auswahl der Skripte angezeigt.
+Das gewählte Skript wird mit wget heruntergeladen.
+Nach dem Download wird es mit chmod +x ausführbar gemacht.
 
 ## Installation & Nutzung
 
@@ -85,5 +84,47 @@ Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkei
 - [ ] DE / EN Versionen
 
 
+
+
+![Logo](https://serancon.de/wp-content/uploads/2022/03/logo.png)
+
+
+www.serancon.de | Michael Kraus
+
+Aus meiner eigenen Erfahrung und der Betreuung von Kunden im Bereich Monitoring heraus habe ich beschlossen, eigene Checks zu entwickeln und hier öffentlich bereitzustellen. Mein Ziel ist es, die Skripte kontinuierlich zu aktualisieren und zu verbessern.
+
+Falls Sie Anregungen oder spezielle Anforderungen haben, lassen Sie es mich wissen. Bei Problemen oder Fehlern können Sie gerne die Issue-Funktion nutzen:
+🔗 GitHub Issues
+
+
+## Skript-Downloader
+
+Der Skript-Downloader ermöglicht es, Skripte aus dem GitHub-Repository check_mk einfach auszuwählen, herunterzuladen und ausführbar zu machen. Die Skripte werden dabei automatisch in dn richtigen Ordner verschoben. Die Skripte können nach dem Downlaod bearbeitet werden.
+Ort der Skripte: `/usr/etc/check_mk/local`
+
+### Funktionsweise
+Das Skript ruft die Liste der Dateien aus dem Repository ab.
+Dem Benutzer wird ein interaktives Menü zur Auswahl der Skripte angezeigt.
+Das gewählte Skript wird mit wget heruntergeladen.
+Nach dem Download wird es mit chmod +x ausführbar gemacht.
+
+## Installation & Nutzung
+1. Ordnerstruktur anlegen
+Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur besteht:
+`/etc/serancon
+/var/log/serancon
+/etc/serancon`
+
+Mit folgendem Befehl können diese angelegt werden:
+
+mkdir -p /etc/serancon /var/log/serancon /etc/serancon
+
+2. Skript herunterladen und ausführbar machen:
+
+`wget https://raw.githubusercontent.com/Individuum92/check_mk/main/github_downloader.sh`
+`chmod +x github_downloader.sh`
+
+3. Skript ausführen:
+`./github_downloader.sh`
 
 
