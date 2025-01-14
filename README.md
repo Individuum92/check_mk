@@ -14,6 +14,7 @@ www.serancon.de | Michael Kraus
 ToDo
 ---
 - Ordnerstruktur überarbeiten, sodass standardisierte Parameter bestehen (für Logs, Arbeitsdateien und etc.)
+- Eindeutigkeit in die Servicenamen einbinden (Serancon {SERVICE NAME}), um z.B. Gruppierungen vornehmen zu können
 - Extensions an alle Skripte hängen sodass erkennbar ist, in welcher Sprache das Skript vorliegt
 - Umlaute anpassen (Ä,Ö,Ü)
 - Update Automatismus der README-Datei einbinden
