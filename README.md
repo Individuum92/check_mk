@@ -25,6 +25,10 @@ Falls Sie Anregungen oder spezielle Anforderungen haben, lassen Sie es mich wiss
 
 - [Sprachen und Technologien](#Sprachen-und-Technologien)
 - [Skript-Downloader](#Skript-Downloader)
+- [Installation & Nutzung](#installation--nutzung)
+- [Verfügbare Skripte](#verfügbare-skripte)
+- [Statistiken](#statistiken)
+- [ToDo](#todo)
 
 </details>
 
@@ -44,23 +48,16 @@ Der Skript-Downloader ermöglicht es, Skripte aus dem GitHub-Repository *check_m
 Das Skript ruft die Liste der Dateien aus dem Repository ab. Dem Benutzer wird ein interaktives Menü zur Auswahl der Skripte angezeigt.  
 **Ort der Skripte:** `/usr/etc/check_mk/local`
 
-
-
 <br>
 
 ### Installation & Nutzung
 
 #### Ordnerstruktur anlegen
 
-Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur besteht:
+Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur besteht. Diese wird automatisch bei Ausführung des Skript-Downloader's angelegt:
 - /etc/serancon
 - /var/log/serancon
 - /tmp/serancon
-
-Diese Struktur wird automatisch bei Ausführung des Skript-Downloader's angelegt. Alternativ mit folgendem Befehl: 
-   ```bash
-   mkdir -p /etc/serancon /var/log/serancon /tmp/serancon
-   ```
 
 #### Skript herunterladen und ausführbar machen
    ```bash
@@ -68,7 +65,7 @@ Diese Struktur wird automatisch bei Ausführung des Skript-Downloader's angelegt
    chmod +x github_downloader.sh
    ```
 
-3. **Skript ausführen:**
+#### Skript ausführen
    ```bash
    ./github_downloader.sh
    ```
