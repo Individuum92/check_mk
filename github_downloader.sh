@@ -6,11 +6,18 @@ GITHUB_API="https://api.github.com/repos/$GITHUB_USER/$REPO/contents"
 METADATA_URL="https://raw.githubusercontent.com/$GITHUB_USER/$REPO/main/metadaten.json"
 TARGET_DIR="/usr/lib/check_mk_agent/local"
 
+# Verzeichnisse prüfen und ggf. anlegen
+REQUIRED_DIRS=("/etc/serancon" "/var/log/serancon" "/tmp/serancon")
+for dir in "${REQUIRED_DIRS[@]}"; do
+    if [ ! -d "$dir" ]; then
+        sudo mkdir -p "$dir"
+    fi
+done
+
 # Prüfe und installiere Abhängigkeiten, falls sie fehlen
 echo "Prüfe erforderliche Pakete..."
 
 MISSING_DEPS=()
-
 for pkg in curl jq grep wget; do
     if ! command -v $pkg &> /dev/null; then
         MISSING_DEPS+=($pkg)
