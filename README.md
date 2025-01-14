@@ -119,9 +119,9 @@ Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkei
 
 ## ToDo
 
-- [ ] Ordnerstruktur überarbeiten, sodass standardisierte Parameter bestehen (für Logs, Arbeitsdateien und etc.)
+- [X] Ordnerstruktur überarbeiten, sodass standardisierte Parameter bestehen (für Logs, Arbeitsdateien und etc.)
 - [ ] Eindeutigkeit in die Servicenamen einbinden (Serancon {SERVICE NAME}), um z.B. Gruppierungen vornehmen zu können
-- [ ] Extensions an alle Skripte hängen sodass erkennbar ist, in welcher Sprache das Skript vorliegt
+- [X] Extensions an alle Skripte hängen sodass erkennbar ist, in welcher Sprache das Skript vorliegt
 - [ ] Umlaute anpassen (Ä,Ö,Ü)
 - [ ] Update Automatismus der README-Datei einbinden
 - [ ] Die jeweiligen Voraussetzungen der Skripte beschreiben
