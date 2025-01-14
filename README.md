@@ -10,17 +10,6 @@ www.serancon.de | Michael Kraus
 
 <br>
 
----
-ToDo
----
-- Ordnerstruktur überarbeiten, sodass standardisierte Parameter bestehen (für Logs, Arbeitsdateien und etc.)
-- Eindeutigkeit in die Servicenamen einbinden (Serancon {SERVICE NAME}), um z.B. Gruppierungen vornehmen zu können
-- Extensions an alle Skripte hängen sodass erkennbar ist, in welcher Sprache das Skript vorliegt
-- Umlaute anpassen (Ä,Ö,Ü)
-- Update Automatismus der README-Datei einbinden
-- Die jeweiligen Voraussetzungen der Skripte beschreiben
-- ===> bei kleineren Vorraussetzunge entsprechend im Skript automatisieren (zB mkdir, touch, wget etc.)
-
 # Skript-Downloader - Dokumentation
 
 Der Skript-Downloader ermöglicht es, Skripte aus dem GitHub-Repository **check_mk** einfach auszuwählen, herunterzuladen und ausführbar zu machen.
@@ -31,6 +20,30 @@ Der Skript-Downloader ermöglicht es, Skripte aus dem GitHub-Repository **check_
 - Dem Benutzer wird ein interaktives Menü zur Auswahl der Skripte angezeigt.
 - Das gewählte Skript wird mit `wget` heruntergeladen.
 - Nach dem Download wird es mit `chmod +x` ausführbar gemacht.
+
+## Installation & Nutzung
+
+1. **Ordnerstruktur anlegen**
+Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur besteht:
+- /etc/serancon
+- /var/log/serancon
+- /etc/serancon
+
+Mit folgendem Befehl können diese angelegt werden: 
+   ```bash
+   mkdir -p /etc/serancon /var/log/serancon /etc/serancon
+   ```
+
+2. **Skript herunterladen und ausführbar machen:**
+   ```bash
+   wget https://raw.githubusercontent.com/Individuum92/check_mk/main/github_downloader.sh
+   chmod +x github_downloader.sh
+   ```
+
+3. **Skript ausführen:**
+   ```bash
+   ./github_downloader.sh
+   ```
 
 ## Verfügbare Skripte
 
@@ -58,20 +71,13 @@ Zählt die Anzahl der gesendeten E-Mails eines Mailservers und hilft bei der Üb
 ### speedtest.py
 Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen.
 
-## Installation & Nutzung
 
-1. **Skript herunterladen und ausführbar machen:**
-   ```bash
-   wget https://raw.githubusercontent.com/Individuum92/check_mk/main/github_downloader.sh
-   chmod +x github_downloader.sh
-   ```
 
-2. **Skript ausführen:**
-   ```bash
-   ./github_downloader.sh
-   ```
+## ToDo
 
-3. **Gewünschtes Skript aus dem Menü auswählen und herunterladen.**
-
----
-Dieses Repository wird regelmäßig aktualisiert 🚀
+- [ ] Ordnerstruktur überarbeiten, sodass standardisierte Parameter bestehen (für Logs, Arbeitsdateien und etc.)
+- [ ] Eindeutigkeit in die Servicenamen einbinden (Serancon {SERVICE NAME}), um z.B. Gruppierungen vornehmen zu können
+- [ ] Extensions an alle Skripte hängen sodass erkennbar ist, in welcher Sprache das Skript vorliegt
+- [ ] Umlaute anpassen (Ä,Ö,Ü)
+- [ ] Update Automatismus der README-Datei einbinden
+- [ ] Die jeweiligen Voraussetzungen der Skripte beschreiben
