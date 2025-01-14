@@ -4,7 +4,7 @@ GITHUB_USER="Individuum92"
 REPO="check_mk"
 GITHUB_API="https://api.github.com/repos/$GITHUB_USER/$REPO/contents"
 METADATA_URL="https://raw.githubusercontent.com/$GITHUB_USER/$REPO/main/metadaten.json"
-
+TARGET_DIR="/usr/lib/check_mk_agent/local"
 
 # Prüfe und installiere Abhängigkeiten, falls sie fehlen
 echo "Prüfe erforderliche Pakete..."
@@ -30,7 +30,13 @@ else
     echo "Alle erforderlichen Pakete sind installiert."
 fi
 
+# Stelle sicher, dass das Zielverzeichnis existiert
+if [ ! -d "$TARGET_DIR" ]; then
+    echo "Erstelle Zielverzeichnis: $TARGET_DIR"
+    sudo mkdir -p "$TARGET_DIR"
+fi
 
+echo "Zielverzeichnis: $TARGET_DIR"
 
 # Lade Metadaten herunter und prüfe, ob es erfolgreich war
 metadata=$(curl -s $METADATA_URL)
@@ -46,7 +52,6 @@ display_menu() {
         echo "Verfügbare Skripte im Repository $REPO"
         echo "========================================"
 
-        # Liste aller Dateien abrufen und nicht relevante Dateien herausfiltern
         scripts=($(curl -s $GITHUB_API | jq -r '.[] | select(.type=="file") | .name' | grep -vE 'README.md|metadaten.json|github_downloader.sh|\.gitattributes'))
 
         if [ ${#scripts[@]} -eq 0 ]; then
@@ -89,13 +94,15 @@ display_menu() {
 download_script() {
     local script_name="$1"
     local script_url="https://raw.githubusercontent.com/$GITHUB_USER/$REPO/main/$script_name"
+    local temp_file="/tmp/$script_name"
 
     echo "Herunterladen von $script_name..."
-    wget -q "$script_url" -O "$script_name"
+    wget -q "$script_url" -O "$temp_file"
 
     if [ $? -eq 0 ]; then
-        chmod +x "$script_name"
-        echo "$script_name erfolgreich heruntergeladen und ausführbar gemacht."
+        chmod +x "$temp_file"
+        sudo mv "$temp_file" "$TARGET_DIR/$script_name"
+        echo "$script_name erfolgreich heruntergeladen, ausführbar gemacht und nach $TARGET_DIR verschoben."
     else
         echo "Fehler beim Herunterladen von $script_name."
     fi
