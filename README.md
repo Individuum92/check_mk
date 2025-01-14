@@ -1,40 +1,68 @@
-![Logo](https://serancon.de/wp-content/uploads/2022/03/logo.png)
+<div align="center">
+    <img src="https://serancon.de/wp-content/uploads/2022/03/logo.png" alt="Logo" style="width:50%;">
+</div>
 
 
-www.serancon.de | Michael Kraus
+
+<div align="center">
+   
+### 👋 Willkommen in meinem eigenen Check_MK Repo!  
+
+[![Website](https://img.shields.io/badge/Website-Visit-blue?style=for-the-badge)](https://serancon.de) [![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Individuum92)
+
+</div>
 
 Aus meiner eigenen Erfahrung und der Betreuung von Kunden im Bereich Monitoring heraus habe ich beschlossen, eigene Checks zu entwickeln und hier öffentlich bereitzustellen. Mein Ziel ist es, die Skripte kontinuierlich zu aktualisieren und zu verbessern.
 
-Falls Sie Anregungen oder spezielle Anforderungen haben, lassen Sie es mich wissen. Bei Problemen oder Fehlern können Sie gerne die Issue-Funktion nutzen:
-🔗 GitHub Issues
+Falls Sie Anregungen oder spezielle Anforderungen haben, lassen Sie es mich wissen. Bei Problemen oder Fehlern können Sie gerne die Issue-Funktion nutzen.
 
+[![GitHub issues](https://img.shields.io/github/issues/Individuum92/check_mk?style=for-the-badge)](https://github.com/Individuum92/check_mk/issues)
+
+<br>
+
+<details>
+  <summary>📚 Inhaltsverzeichnis</summary>
+
+- [Sprachen und Technologien](#Sprachen-und-Technologien)
+- [Skript-Downloader](#Skript-Downloader)
+
+</details>
+
+<br>
+
+## Sprachen und Technologien
+
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) 
+
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-A22846?style=for-the-badge&logo=raspberry-pi&logoColor=white)
+
+<br>
 
 ## Skript-Downloader
 
-Der Skript-Downloader ermöglicht es, Skripte aus dem GitHub-Repository check_mk einfach auszuwählen, herunterzuladen und ausführbar zu machen. Die Skripte werden dabei automatisch in dn richtigen Ordner verschoben. Die Skripte können nach dem Downlaod bearbeitet werden.
-Ort der Skripte: `/usr/etc/check_mk/local`
+Der Skript-Downloader ermöglicht es, Skripte aus dem GitHub-Repository *check_mk* einfach auszuwählen, herunterzuladen und ausführbar zu machen. Die Skripte werden dabei automatisch in den richtigen Ordner verschoben und können bearbeitet werden.  
+Das Skript ruft die Liste der Dateien aus dem Repository ab. Dem Benutzer wird ein interaktives Menü zur Auswahl der Skripte angezeigt.  
+**Ort der Skripte:** `/usr/etc/check_mk/local`
 
-### Funktionsweise
-Das Skript ruft die Liste der Dateien aus dem Repository ab.
-Dem Benutzer wird ein interaktives Menü zur Auswahl der Skripte angezeigt.
-Das gewählte Skript wird mit wget heruntergeladen.
-Nach dem Download wird es mit chmod +x ausführbar gemacht.
 
-## Installation & Nutzung
 
-1. **Ordnerstruktur anlegen**
+<br>
+
+### Installation & Nutzung
+
+#### Ordnerstruktur anlegen
 
 Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur besteht:
 - /etc/serancon
 - /var/log/serancon
 - /etc/serancon
 
-Mit folgendem Befehl können diese angelegt werden: 
+Diese Struktur wird automatisch bei Ausführung des Skript-Downloader's angelegt. Alternativ mit folgendem Befehl: 
    ```bash
    mkdir -p /etc/serancon /var/log/serancon /etc/serancon
    ```
 
-2. **Skript herunterladen und ausführbar machen:**
+#### Skript herunterladen und ausführbar machen
    ```bash
    wget https://raw.githubusercontent.com/Individuum92/check_mk/main/github_downloader.sh
    chmod +x github_downloader.sh
@@ -71,7 +99,15 @@ Zählt die Anzahl der gesendeten E-Mails eines Mailservers und hilft bei der Üb
 ### speedtest.py
 Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen.
 
+<br>
 
+## Statistiken
+
+[![GitHub stars](https://img.shields.io/github/stars/Individuum92/check_mk?style=for-the-badge)](https://github.com/Individuum92/check_mk/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Individuum92/check_mk?style=for-the-badge)](https://github.com/Individuum92/check_mk/network/members)
+[![GitHub watchers](https://img.shields.io/github/watchers/Individuum92/check_mk?style=for-the-badge)](https://github.com/Individuum92/check_mk/watchers)
+
+<br>
 
 ## ToDo
 
@@ -82,49 +118,4 @@ Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkei
 - [ ] Update Automatismus der README-Datei einbinden
 - [ ] Die jeweiligen Voraussetzungen der Skripte beschreiben
 - [ ] DE / EN Versionen
-
-
-
-
-![Logo](https://serancon.de/wp-content/uploads/2022/03/logo.png)
-
-
-www.serancon.de | Michael Kraus
-
-Aus meiner eigenen Erfahrung und der Betreuung von Kunden im Bereich Monitoring heraus habe ich beschlossen, eigene Checks zu entwickeln und hier öffentlich bereitzustellen. Mein Ziel ist es, die Skripte kontinuierlich zu aktualisieren und zu verbessern.
-
-Falls Sie Anregungen oder spezielle Anforderungen haben, lassen Sie es mich wissen. Bei Problemen oder Fehlern können Sie gerne die Issue-Funktion nutzen:
-🔗 GitHub Issues
-
-
-## Skript-Downloader
-
-Der Skript-Downloader ermöglicht es, Skripte aus dem GitHub-Repository check_mk einfach auszuwählen, herunterzuladen und ausführbar zu machen. Die Skripte werden dabei automatisch in dn richtigen Ordner verschoben. Die Skripte können nach dem Downlaod bearbeitet werden.
-Ort der Skripte: `/usr/etc/check_mk/local`
-
-### Funktionsweise
-Das Skript ruft die Liste der Dateien aus dem Repository ab.
-Dem Benutzer wird ein interaktives Menü zur Auswahl der Skripte angezeigt.
-Das gewählte Skript wird mit wget heruntergeladen.
-Nach dem Download wird es mit chmod +x ausführbar gemacht.
-
-## Installation & Nutzung
-1. Ordnerstruktur anlegen
-Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur besteht:
-`/etc/serancon
-/var/log/serancon
-/etc/serancon`
-
-Mit folgendem Befehl können diese angelegt werden:
-
-mkdir -p /etc/serancon /var/log/serancon /etc/serancon
-
-2. Skript herunterladen und ausführbar machen:
-
-`wget https://raw.githubusercontent.com/Individuum92/check_mk/main/github_downloader.sh`
-`chmod +x github_downloader.sh`
-
-3. Skript ausführen:
-`./github_downloader.sh`
-
 
