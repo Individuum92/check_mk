@@ -21,7 +21,7 @@ Falls Sie Anregungen oder spezielle Anforderungen haben, lassen Sie es mich wiss
 
 ## Warum dieses Repository?
 
-CheckMK ist ein mächtiges Tool zur Überwachung von Systemen. Dieses Repository stellt zusätzliche Skripte zur Automatisierung bereit, um:
+CheckMK ist ein mächtiges Tool zur Überwachung von Systemen. Dieses Repository stellt zusätzliche Skripte zur Automatisierung bereit, um:  
 ✔️ Skripte automatisieren wiederkehrende Aufgaben und reduzieren den Verwaltungsaufwand in CheckMK  
 ✔️ Zentrale Bereitstellung und Verwaltung aller Skripte statt manueller Updates auf mehreren Servern  
 ✔️ Der GitHub-Downloader hält Skripte automatisch aktuell – ohne manuelles Kopieren  
@@ -83,29 +83,34 @@ Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur b
 
 ## Verfügbare Skripte
 
-### check_folder_content
+### Linux
+
+#### check_folder_content.sh
 Überprüft den Inhalt eines Verzeichnisses und meldet Änderungen oder Abweichungen.
 
-### check_rpi_temp
-Misst die CPU-Temperatur eines Raspberry Pi und gibt Warnungen bei Überhitzung aus.
 
-### check_user_exp.py
+#### check_user_exp.py
 Prüft die Ablaufdaten von Benutzerkonten und informiert Administratoren über baldige Abläufe.
 
-### count_sent_mails
+#### count_sent_mails.sh
 Zählt die Anzahl der gesendeten E-Mails eines Mailservers und hilft bei der Überwachung des E-Mail-Aufkommens.
 
-### folder_size_check
+#### folder_size_check.sh
 Überwacht die Größe eines Verzeichnisses und gibt Warnungen bei Überschreiten von Grenzwerten aus.
 
-### check_blacklist.py
+#### check_blacklist.py
 Überprüft, ob bestimmte IP-Adressen oder Domains auf einer Blacklist stehen
 
-### check_cronjobs.py
+#### check_cronjobs.py
 Überwacht geplante Cronjobs auf einem Linux-System und meldet, ob sie erfolgreich ausgeführt wurden oder fehlschlagen.
 
-### speedtest.py
+#### speedtest.py
 Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen.
+
+### Raspberry-Pi
+
+#### check_rpi_temp.sh
+Misst die CPU-Temperatur eines Raspberry Pi und gibt Warnungen bei Überhitzung aus.
 
 <br>
 
