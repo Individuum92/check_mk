@@ -1,12 +1,15 @@
 #!/bin/bash
 
 # Konfiguration
-FOLDER="/var/html-backup/"
+FOLDER="/check_mk_backups/"
 TIME_TRACK_FILE="/tmp/nicht_entfernen_folder_check_time"
 
 # Schwellenwerte in Minuten (z. B. 720 Minuten = 12 Stunden, 1080 Minuten = 18 Stunden)
-WARN_THRESHOLD=720  # Zeit in Minuten für WARN
-CRIT_THRESHOLD=1080 # Zeit in Minuten für CRIT
+WARN_THRESHOLD=60  # Zeit in Minuten für WARN
+CRIT_THRESHOLD=180 # Zeit in Minuten für CRIT
+
+# Präfix-Steuerung
+PREFIX_ENABLED=1  # 1 = "Serancon: " wird vorangestellt, 0 = deaktiviert
 
 DIR_COUNT=$(find "$FOLDER" -mindepth 1 -maxdepth 1 -type d | wc -l)
 CURRENT_TIME=$(date +%s)
@@ -15,7 +18,7 @@ CURRENT_TIME=$(date +%s)
 if [ "$DIR_COUNT" -eq 0 ]; then
     rm -f "$TIME_TRACK_FILE"
     STATUS=0  # OK
-    MESSAGE="Ordner $FOLDER ist leer. Zeitmessung zurückgesetzt."
+    MESSAGE="Folder $FOLDER is empty. Time measurement reset."
 else
     # Prüfe, ob eine Zeitmessung existiert
     if [ -f "$TIME_TRACK_FILE" ]; then
@@ -41,7 +44,13 @@ else
     fi
 fi
 
-SERVICE_NAME="Folder Check of $FOLDER"
+# Servicenamen setzen mit optionalem Präfix
+BASE_SERVICE_NAME="Folder content check"
+if [ "$PREFIX_ENABLED" -eq 1 ]; then
+    SERVICE_NAME="Serancon: $BASE_SERVICE_NAME"
+else
+    SERVICE_NAME="$BASE_SERVICE_NAME"
+fi
 
 # Ausgabe im CheckMK-Format mit dynamischen Schwellenwerten
 echo "$STATUS \"$SERVICE_NAME\" count=$DIR_COUNT;$WARN_THRESHOLD;$CRIT_THRESHOLD;0 $MESSAGE"

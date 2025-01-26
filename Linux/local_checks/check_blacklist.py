@@ -3,9 +3,15 @@ import socket
 
 # Konfiguration
 MAILSERVER_IP = "194.48.217.75"
-SERVICE_NAME = "Blacklist Check"
+BASE_SERVICE_NAME = "Blacklist Check"  # Basis-Servicename für CheckMK
+
+# Präfix-Steuerung
+PREFIX_ENABLED = 1  # 1 = "Serancon: " wird vorangestellt, 0 = deaktiviert
+
+# Setze den Servicenamen mit optionalem Präfix
+SERVICE_NAME = f"Serancon: {BASE_SERVICE_NAME}" if PREFIX_ENABLED else BASE_SERVICE_NAME
+
 BLACKLISTS = [
-    "zen.spamhaus.org",
     "b.barracudacentral.org",
     "bl.spamcop.net",
     "dnsbl.sorbs.net",

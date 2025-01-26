@@ -9,6 +9,9 @@ LOG_PATH="/var/log/mail.log*"
 WARN_THRESHOLD=1000
 CRIT_THRESHOLD=5000
 
+# Toggle for adding prefix
+PREFIX_ENABLED=1  # 1 = Prefix "Serancon: " enabled, 0 = Prefix disabled
+
 # Count the number of sent emails
 EMAIL_COUNT=$(zgrep "status=sent" $LOG_PATH | wc -l)
 
@@ -24,9 +27,14 @@ else
     STATUS_TEXT="OK"
 fi
 
-# Output in CheckMK Local Check format
-SERVICE_NAME="Postfix Email Sent by CheckMK"
+# Define service name with optional prefix
+BASE_SERVICE_NAME="Postfix Email Sent by CheckMK"
+if [ "$PREFIX_ENABLED" -eq 1 ]; then
+    SERVICE_NAME="Serancon: $BASE_SERVICE_NAME"
+else
+    SERVICE_NAME="$BASE_SERVICE_NAME"
+fi
 
-# Output in CheckMK Local Check format with display name in description
+# Output in CheckMK Local Check format
 echo "<<<local>>>"
 echo "$STATUS \"$SERVICE_NAME\" count=$EMAIL_COUNT;$WARN_THRESHOLD;$CRIT_THRESHOLD Sent emails: $EMAIL_COUNT - $STATUS_TEXT"
