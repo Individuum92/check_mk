@@ -85,32 +85,36 @@ Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur b
 
 ### Linux
 
-#### check_folder_content.sh
-Überprüft den Inhalt eines Verzeichnisses und meldet Änderungen oder Abweichungen.
-
-
-#### check_user_exp.py
-Prüft die Ablaufdaten von Benutzerkonten und informiert Administratoren über baldige Abläufe.
-
-#### count_sent_mails.sh
-Zählt die Anzahl der gesendeten E-Mails eines Mailservers und hilft bei der Überwachung des E-Mail-Aufkommens.
-
-#### folder_size_check.sh
-Überwacht die Größe eines Verzeichnisses und gibt Warnungen bei Überschreiten von Grenzwerten aus.
+#### apt_updates.py
+Überprüft verfügbare APT-Updates und gibt basierend auf definierten Schwellenwerten Warnungen oder kritische Meldungen aus.
 
 #### check_blacklist.py
-Überprüft, ob bestimmte IP-Adressen oder Domains auf einer Blacklist stehen
+Prüft, ob eine angegebene Mailserver-IP-Adresse auf bekannten Blacklists gelistet ist, und meldet den Status entsprechend.
 
 #### check_cronjobs.py
-Überwacht geplante Cronjobs auf einem Linux-System und meldet, ob sie erfolgreich ausgeführt wurden oder fehlschlagen.
+Überwacht die Ausführung von Cronjobs, indem es Logdateien analysiert und sicherstellt, dass geplante Aufgaben innerhalb eines bestimmten Zeitrahmens ausgeführt wurden.
+
+#### check_folder_content.sh
+Überwacht einen spezifischen Ordner und prüft, ob dieser leer ist. Falls nicht, wird die Dauer seit der letzten Leerung erfasst und entsprechend gemeldet.
+
+#### check_user_exp.py
+Überprüft die Ablaufdaten der Passwörter für eine Liste von Benutzern und gibt Warnungen aus, wenn Passwörter bald ablaufen oder bereits abgelaufen sind.
+
+#### check_vnstat.py
+Analysiert Netzwerkverkehrsdaten für eine angegebene Netzwerkschnittstelle mithilfe von `vnstat` und gibt Informationen zum eingehenden und ausgehenden Datenverkehr aus.
+
+#### count_sent_mails.sh
+Zählt die Anzahl der erfolgreich gesendeten E-Mails in Postfix-Logdateien und gibt basierend auf definierten Schwellenwerten den Status aus.
+
+#### folder_size_check.sh
+Misst die Größe eines angegebenen Ordners und gibt diese Information im CheckMK-Format aus.
 
 #### speedtest.py
-Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen.
-
-### Raspberry-Pi
+Führt einen Geschwindigkeitstest durch und meldet Download- und Upload-Geschwindigkeiten, Latenz, Paketverlust sowie weitere Netzwerkdetails.
 
 #### check_rpi_temp.sh
-Misst die CPU-Temperatur eines Raspberry Pi und gibt Warnungen bei Überhitzung aus.
+Überwacht die Temperatur des Raspberry Pi und gibt Warnungen oder kritische Meldungen aus, wenn definierte Temperaturschwellen überschritten werden.
+
 
 <br>
 
