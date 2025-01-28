@@ -6,5 +6,7 @@
   "folder_size_check.sh": "Überwacht die Größe eines Verzeichnisses und gibt Warnungen bei Überschreiten von Grenzwerten aus.",
   "check_blacklist.py": "Überprüft, ob bestimmte IP-Adressen oder Domains auf einer Blacklist stehen.",
   "check_cronjobs.py": "Überwacht geplante Cronjobs auf einem Linux-System und meldet, ob sie erfolgreich ausgeführt wurden oder fehlschlagen.",
-  "speedtest.py": "Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen."
+  "speedtest.py": "Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen.",
+  "apt_updates.py": "Prüft auf verfügbare Updates der eingebundenen Repositories sowie Überprüfung der Repositories.",
+  "check_vnstat.py": "Zeigt die Übertragungen der Netzwerkschnittstelle an."
 }
