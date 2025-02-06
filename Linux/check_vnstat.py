@@ -50,12 +50,12 @@ def parse_vnstat(data):
         traffic = data["interfaces"][0]["traffic"]
         months = traffic["month"]
 
-        # Aktuelles Jahr und Monat bestimmen
+        # Aktuelles Datum bestimmen
         now = datetime.datetime.now()
         current_month_str = f"{now.year}-{now.month:02d}"
-        current_month_name = MONTH_NAMES[now.month]  # Aktueller Monat als Name
+        current_month_name = MONTH_NAMES[now.month]  # Aktueller Monatsname
 
-        # Aktueller Monats-Traffic für die Graphen
+        # Aktuellen Monats-Traffic abrufen
         current_month = next((m for m in months if f"{m['date']['year']}-{m['date']['month']:02d}" == current_month_str), None)
         if not current_month:
             log_error(f"No data found for current month ({current_month_str})")
@@ -65,8 +65,14 @@ def parse_vnstat(data):
         in_month = convert_to_gib(current_month["rx"])
         out_month = convert_to_gib(current_month["tx"])
 
-        # **CheckMK-konforme Ausgabe mit aktuellem Monatsnamen**
-        output = f"0 \"{SERVICE_NAME}\" INCOMING_{current_month_name}={in_month:.2f}GiB|OUTGOING_{current_month_name}={out_month:.2f}GiB"
+        # **Zusammenfassung für CheckMK (einzeilig für bessere Kompatibilität)**
+        summary = f"{current_month_name}: Incoming {in_month:.2f} GiB, Outgoing {out_month:.2f} GiB"
+
+        # **Performance-Daten für CheckMK (Graphen)**
+        perfdata = f"INCOMING={in_month:.2f}GiB OUTGOING={out_month:.2f}GiB"
+
+        # **Finale Ausgabe für CheckMK (korrekt formatiert)**
+        output = f"0 \"{SERVICE_NAME}\" - {summary} | {perfdata}"
         print(output)
         log_info(output)
 
