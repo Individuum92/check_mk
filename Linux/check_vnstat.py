@@ -3,15 +3,31 @@ import subprocess
 import json
 import sys
 import os
+import datetime
 
-# Netzwerkschnittstelle anpassen (z. B. eth0, wlan0)
-INTERFACE = "wlan0"  # Falls eth0 nicht genutzt wird, kann dies geändert werden
+# Netzwerkschnittstelle
+INTERFACE = "wlan0"
 LOG_FILE = "/var/log/serancon/vnstat.log"
 
 # Präfix-Steuerung
-PREFIX_ENABLED = 1  # 1 = "Serancon: " wird vorangestellt, 0 = deaktiviert
+PREFIX_ENABLED = 1
 BASE_SERVICE_NAME = "VNStat Traffic"
 SERVICE_NAME = f"Serancon: {BASE_SERVICE_NAME}" if PREFIX_ENABLED else BASE_SERVICE_NAME
+
+# Monatsnamen für bessere Lesbarkeit
+MONTH_NAMES = {
+    1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June",
+    7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December"
+}
+
+# Fehlerprotokollierung
+def log_error(message):
+    with open(LOG_FILE, "a") as log:
+        log.write(f"[ERROR] {message}\n")
+
+def log_info(message):
+    with open(LOG_FILE, "a") as log:
+        log.write(f"[INFO] {message}\n")
 
 # vnstat-Daten abrufen
 def get_vnstat_data(interface):
@@ -24,31 +40,36 @@ def get_vnstat_data(interface):
         print(f"2 \"{SERVICE_NAME}\" - Error reading vnstat data: {e}")
         sys.exit(2)
 
-# Fehlerprotokollierung
-def log_error(message):
-    with open(LOG_FILE, "a") as log:
-        log.write(f"[ERROR] {message}\n")
+# Umrechnung von Bytes in GiB
+def convert_to_gib(value):
+    return round(value / (1024**3), 2)
 
-# Log schreiben
-def log_info(message):
-    with open(LOG_FILE, "a") as log:
-        log.write(f"[INFO] {message}\n")
-
-# Daten auswerten
-def parse_vnstat(data, interface):
+# Werte aus vnstat extrahieren
+def parse_vnstat(data):
     try:
-        traffic = data["interfaces"][0]["traffic"]["hour"]
-        if not traffic:
-            raise ValueError("No hourly traffic data available")
+        traffic = data["interfaces"][0]["traffic"]
+        months = traffic["month"]
 
-        latest_entry = traffic[-1]  # Letzter Stunden-Eintrag
-        rx = round(latest_entry["rx"] / (1024 ** 2), 2)  # Empfangene Daten in GB
-        tx = round(latest_entry["tx"] / (1024 ** 2), 2)  # Gesendete Daten in GB
-        total = round(rx + tx, 2)  # Gesamttraffic in GB
+        # Aktuelles Jahr und Monat bestimmen
+        now = datetime.datetime.now()
+        current_month_str = f"{now.year}-{now.month:02d}"
+        current_month_name = MONTH_NAMES[now.month]  # Aktueller Monat als Name
 
-        output = (f"0 \"{SERVICE_NAME}\" IN={rx:.2f}GB|OUT={tx:.2f}GB|TOTAL={total:.2f}GB")
+        # Aktueller Monats-Traffic für die Graphen
+        current_month = next((m for m in months if f"{m['date']['year']}-{m['date']['month']:02d}" == current_month_str), None)
+        if not current_month:
+            log_error(f"No data found for current month ({current_month_str})")
+            print(f"2 \"{SERVICE_NAME}\" - No data available for {current_month_name}")
+            sys.exit(2)
+
+        in_month = convert_to_gib(current_month["rx"])
+        out_month = convert_to_gib(current_month["tx"])
+
+        # **CheckMK-konforme Ausgabe mit aktuellem Monatsnamen**
+        output = f"0 \"{SERVICE_NAME}\" INCOMING_{current_month_name}={in_month:.2f}GiB|OUTGOING_{current_month_name}={out_month:.2f}GiB"
         print(output)
         log_info(output)
+
     except Exception as e:
         log_error(f"Error parsing vnstat data: {e}")
         print(f"2 \"{SERVICE_NAME}\" - Error parsing vnstat data: {e}")
@@ -60,7 +81,7 @@ def main():
         os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
     data = get_vnstat_data(INTERFACE)
-    parse_vnstat(data, INTERFACE)
+    parse_vnstat(data)
 
 if __name__ == "__main__":
     main()
