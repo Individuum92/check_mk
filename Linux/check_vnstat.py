@@ -6,12 +6,12 @@ import os
 import datetime
 
 # Netzwerkschnittstelle
-INTERFACE = "wlan0"
+INTERFACE = "tho0"
 LOG_FILE = "/var/log/serancon/vnstat.log"
 
 # Präfix-Steuerung
 PREFIX_ENABLED = 1
-BASE_SERVICE_NAME = "VNStat Traffic"
+BASE_SERVICE_NAME = f"VNStat Traffic {INTERFACE}"
 SERVICE_NAME = f"Serancon: {BASE_SERVICE_NAME}" if PREFIX_ENABLED else BASE_SERVICE_NAME
 
 # Monatsnamen für bessere Lesbarkeit
