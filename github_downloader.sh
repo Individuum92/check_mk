@@ -46,19 +46,18 @@ fi
 display_menu() {
     while true; do
         clear
-        echo "=================================================="
+        echo "===================================================="
         echo "Verfügbare Kategorien im Repository $REPO"
-        echo "=================================================="
+        echo "===================================================="
         echo "1. Linux"
-        echo "2. Raspberry-Pi"
-        echo "3. Beenden"
+        echo ""
+        echo "2. Beenden"
 
         read -p "Wähle eine Kategorie: " category_selection
 
         case "$category_selection" in
             1) download_category "Linux" ;;
-            2) download_category "Raspberry-Pi" ;;
-            3) echo "Beenden..."; exit 0 ;;
+            2) echo "Beenden..."; exit 0 ;;
             *) echo "Ungültige Auswahl, bitte erneut versuchen."; sleep 5 ;;
         esac
     done
@@ -67,14 +66,13 @@ display_menu() {
 download_category() {
     local category="$1"
     local category_api="$GITHUB_API/$category"
-
     clear
-    echo "=================================================="
+    echo "========================================================"
     echo "Verfügbare Skripte in $category"
-    echo "=================================================="
+    echo "========================================================"
 
     response=$(curl -s "$category_api")
-    
+
     # Prüfen, ob die Antwort eine Liste oder ein einzelnes Objekt ist
     if echo "$response" | jq -e 'type=="array"' >/dev/null 2>&1; then
         scripts=($(echo "$response" | jq -r '.[] | select(.type=="file") | .name'))
@@ -89,7 +87,11 @@ download_category() {
     fi
 
     for i in "${!scripts[@]}"; do
-        echo "$((i+1)). ${scripts[i]}"
+        script_name="${scripts[i]}"
+        description=$(echo "$metadata" | jq -r --arg key "$script_name" '.[$key] // "Keine Beschreibung verfügbar."')
+        echo "$((i+1)). $script_name"
+        echo "Beschreibung: $description"
+        echo ""
     done
     echo "$(( ${#scripts[@]} + 1 )). Zurück zum Hauptmenü"
 
