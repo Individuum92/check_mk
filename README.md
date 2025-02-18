@@ -85,35 +85,38 @@ Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur b
 
 ### Linux
 
-#### apt_updates.py
-Überprüft verfügbare APT-Updates und gibt basierend auf definierten Schwellenwerten Warnungen oder kritische Meldungen aus.
-
-#### check_blacklist.py
-Prüft, ob eine angegebene Mailserver-IP-Adresse auf bekannten Blacklists gelistet ist, und meldet den Status entsprechend.
-
-#### check_cronjobs.py
-Überwacht die Ausführung von Cronjobs, indem es Logdateien analysiert und sicherstellt, dass geplante Aufgaben innerhalb eines bestimmten Zeitrahmens ausgeführt wurden.
-
 #### check_folder_content.sh
-Überwacht einen spezifischen Ordner und prüft, ob dieser leer ist. Falls nicht, wird die Dauer seit der letzten Leerung erfasst und entsprechend gemeldet.
+Überprüft den Inhalt eines Verzeichnisses und meldet Änderungen oder Abweichungen.
 
 #### check_user_exp.py
-Überprüft die Ablaufdaten der Passwörter für eine Liste von Benutzern und gibt Warnungen aus, wenn Passwörter bald ablaufen oder bereits abgelaufen sind.
+Prüft die Ablaufdaten von Benutzerkonten und informiert Administratoren über baldige Abläufe.
+
+#### check_count_sent_mails.sh
+Zählt die Anzahl der gesendeten E-Mails eines Mailservers und hilft bei der Überwachung des E-Mail-Aufkommens.
+
+#### check_folder_size.sh
+Überwacht die Größe eines Verzeichnisses und gibt Warnungen bei Überschreiten von Grenzwerten aus.
+
+#### check_blacklist.py
+Überprüft, ob bestimmte IP-Adressen oder Domains auf einer Blacklist stehen.
+
+#### check_cronjobs.py
+Überwacht geplante Cronjobs auf einem Linux-System und meldet, ob sie erfolgreich ausgeführt wurden oder fehlschlagen.
+
+#### check_speedtest.py
+Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen.
+
+#### check_apt_updates.py
+Prüft auf verfügbare Updates der eingebundenen Repositories sowie Überprüfung der Repositories.
 
 #### check_vnstat.py
-Analysiert Netzwerkverkehrsdaten für eine angegebene Netzwerkschnittstelle mithilfe von `vnstat` und gibt Informationen zum eingehenden und ausgehenden Datenverkehr aus.
+Zeigt die Übertragungen der Netzwerkschnittstelle an.
 
-#### count_sent_mails.sh
-Zählt die Anzahl der erfolgreich gesendeten E-Mails in Postfix-Logdateien und gibt basierend auf definierten Schwellenwerten den Status aus.
+#### check_raspberry_voltage.py
+Prüft, ob und warum der Raspberry Pi in einen gedrosselten Zustand (Throttling) versetzt wurde.
 
-#### folder_size_check.sh
-Misst die Größe eines angegebenen Ordners und gibt diese Information im CheckMK-Format aus.
-
-#### speedtest.py
-Führt einen Geschwindigkeitstest durch und meldet Download- und Upload-Geschwindigkeiten, Latenz, Paketverlust sowie weitere Netzwerkdetails.
-
-#### check_rpi_temp.sh
-Überwacht die Temperatur des Raspberry Pi und gibt Warnungen oder kritische Meldungen aus, wenn definierte Temperaturschwellen überschritten werden.
+#### check_ping.py
+Prüft via Ping auf eine IP die Antwortzeit.
 
 
 <br>
