@@ -9,5 +9,5 @@
   "check_apt_updates.py": "Prüft auf verfügbare Updates der eingebundenen Repositories sowie Überprüfung der Repositories.",
   "check_vnstat.py": "Zeigt die Übertragungen der Netzwerkschnittstelle an.",
   "check_raspberry_voltage.py": "Prüft, ob und warum der Raspberry Pi in einen gedrosselten Zustand (Throttling) versetzt wurde.",
-  "check_ping,py": "Prüft via Ping auf eine IP die Antwortzeit."
+  "check_ping.py": "Prüft via Ping auf eine IP die Antwortzeit."
 }
