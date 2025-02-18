@@ -8,5 +8,6 @@
   "check_cronjobs.py": "Überwacht geplante Cronjobs auf einem Linux-System und meldet, ob sie erfolgreich ausgeführt wurden oder fehlschlagen.",
   "check_speedtest.py": "Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen.",
   "check_apt_updates.py": "Prüft auf verfügbare Updates der eingebundenen Repositories sowie Überprüfung der Repositories.",
-  "check_vnstat.py": "Zeigt die Übertragungen der Netzwerkschnittstelle an."
+  "check_vnstat.py": "Zeigt die Übertragungen der Netzwerkschnittstelle an.",
+  "check_ping,py": "Prüft via Ping auf eine IP die Antwortzeit."
 }
