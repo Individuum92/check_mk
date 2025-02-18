@@ -1,6 +1,5 @@
 {
   "check_folder_content.sh": "Überprüft den Inhalt eines Verzeichnisses und meldet Änderungen oder Abweichungen.",
-  "check_rpi_temp.sh": "Misst die CPU-Temperatur eines Raspberry Pi und gibt Warnungen bei Überhitzung aus.",
   "check_user_exp.py": "Prüft die Ablaufdaten von Benutzerkonten und informiert Administratoren über baldige Abläufe.",
   "check_count_sent_mails.sh": "Zählt die Anzahl der gesendeten E-Mails eines Mailservers und hilft bei der Überwachung des E-Mail-Aufkommens.",
   "check_folder_size.sh": "Überwacht die Größe eines Verzeichnisses und gibt Warnungen bei Überschreiten von Grenzwerten aus.",
@@ -9,5 +8,6 @@
   "check_speedtest.py": "Führt einen Internet-Speedtest durch und misst Download-, Upload-Geschwindigkeit und Latenz. Es kann genutzt werden, um die Netzwerkleistung regelmäßig zu testen.",
   "check_apt_updates.py": "Prüft auf verfügbare Updates der eingebundenen Repositories sowie Überprüfung der Repositories.",
   "check_vnstat.py": "Zeigt die Übertragungen der Netzwerkschnittstelle an.",
+  "check_raspberry_voltage.py": "Prüft, ob und warum der Raspberry Pi in einen gedrosselten Zustand (Throttling) versetzt wurde.",
   "check_ping,py": "Prüft via Ping auf eine IP die Antwortzeit."
 }
