@@ -74,9 +74,7 @@ def parse_vnstat(data):
         out_month = convert_to_gib(current_month["tx"])
 
         # **CheckMK-konforme Ausgabe mit aktuellem Monatsnamen**
-        #FALLBACK output = f"0 \"{SERVICE_NAME}\" INCOMING={in_month:.2f}GiB|OUTGOING={out_month:.2f}GiB"
         output = f"0 \"{SERVICE_NAME}\" INCOMING={in_month:.2f}GiB|OUTGOING={out_month:.2f}GiB Incoming={in_month:.2f}GiB Outgoing={out_month:.2f}GiB"
-        #output = f'0 "{SERVICE_NAME}" INCOMING={in_month * 1024:.2f}MB;;;0; OUTGOING={out_month * 1024:.2f}MB;;;0; Incoming={in_month:.2f}GB Outgoing={out_month:.2f}GB'
         print(output)
         log_info(output)
 
