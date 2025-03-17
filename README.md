@@ -118,6 +118,9 @@ Prüft, ob und warum der Raspberry Pi in einen gedrosselten Zustand (Throttling)
 #### check_ping.py
 Prüft via Ping auf eine IP die Antwortzeit.
 
+#### check_fail2ban.py
+Prüft den Status des Services und erstellt eine Übersicht der Statistiken (Ban, Unban, All)
+
 
 <br>
 
