@@ -6,7 +6,7 @@ import os
 import datetime
 
 # Netzwerkschnittstelle
-INTERFACE = "tho0"
+INTERFACE = "eth0"
 LOG_FILE = "/var/log/serancon/vnstat.log"
 
 # Präfix-Steuerung
@@ -28,6 +28,14 @@ def log_error(message):
 def log_info(message):
     with open(LOG_FILE, "a") as log:
         log.write(f"[INFO] {message}\n")
+
+# vnstat installieren und starten
+def install_and_start_vnstat():
+    subprocess.run(["sudo", "apt-get", "update", "-qq"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(["sudo", "apt-get", "install", "-y", "vnstat"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(["sudo", "systemctl", "enable", "vnstat"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(["sudo", "systemctl", "start", "vnstat"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
 
 # vnstat-Daten abrufen
 def get_vnstat_data(interface):
