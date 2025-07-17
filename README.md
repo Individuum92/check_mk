@@ -117,6 +117,8 @@ Prüft via Ping auf eine IP die Antwortzeit.
 #### check_fail2ban.py
 Prüft den Status des Services und erstellt eine Übersicht der Statistiken (Ban, Unban, All)
 
+#### check_services.py
+Prüft den Status der definierten Services.
 
 <br>
 
