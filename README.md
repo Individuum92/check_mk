@@ -72,12 +72,8 @@ Voraussetzungen für die Nutzung der Skripte ist, dass folgende Ordnerstruktur b
 
 #### Github-Downloader herunterladen
    ```bash
-   wget https://raw.githubusercontent.com/Individuum92/check_mk/main/github_downloader.sh
+   cd /root && wget https://raw.githubusercontent.com/Individuum92/check_mk/main/github_downloader.sh
    chmod +x github_downloader.sh
-   ```
-
-#### Skript ausführen
-   ```bash
    ./github_downloader.sh
    ```
 
